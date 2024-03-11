@@ -1,0 +1,5 @@
+def not_multiples(divisor, upper_limit):
+    for num in range(1, upper_limit + 1):
+        if num % divisor == 0:
+            continue
+        print(num)
