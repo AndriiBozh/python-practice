@@ -1,0 +1,8 @@
+def waitForCorrectInput():
+    user_input = input("Please type q or Q to stop seeing this message: ")
+    while user_input != "q" or user_input != "Q":
+        user_input = input("Please type q or Q to stop seeing this message: ")
+        if user_input == "q" or user_input == "Q":
+            break
+
+    print("I'm free now. Thank you.")
