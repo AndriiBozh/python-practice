@@ -1,0 +1,10 @@
+def only_numbers_please():
+    while True:
+        try:
+            user_input = int(input("Print your number, please: "))
+            print(f"Your number is {user_input}")
+            break
+        except ValueError:
+            print("Only numbers, please")
+
+    print("Good bye")
