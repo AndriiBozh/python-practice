@@ -1,0 +1,19 @@
+def string_and_integer():
+    print("number points at a letter in a sentence, enter s to quit")
+    while True:
+        user_input_str = input("Please enter a word or a sentence: ")
+
+        if user_input_str == "s":
+            print("Good bye")
+            break
+
+        try:
+            user_input_int = int(input("Please enter a number: "))
+        except ValueError:            
+            print("please enter a number")
+            # do not enter the next 'try" block, start at "while True", 
+            continue
+        try:
+            print(f"letter at position {user_input_int} is '{user_input_str[user_input_int-1]}'")
+        except IndexError:
+            print("The sentence is shorter, please enter a smaller number")
