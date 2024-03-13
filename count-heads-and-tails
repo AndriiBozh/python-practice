@@ -1,0 +1,12 @@
+def count_heads_tails():
+    count_heads = 0
+    count_tails = 0
+
+    for i in range(0, 100):
+       heads_or_tails = random.randint(0, 1)
+       if heads_or_tails == 0:
+           count_heads +=1
+       else:
+           count_tails +=1
+    print("heads: ", count_heads)
+    print("tails: ", count_tails)
