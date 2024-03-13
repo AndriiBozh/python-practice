@@ -1,0 +1,9 @@
+def average_roll():
+    num_rolled = 100
+    count = 0
+    for i in range(num_rolled):
+        res = random.randint(1, 6)
+        count += res
+
+    average_num = count / num_rolled
+    print(average_num)
