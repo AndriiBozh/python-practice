@@ -1,0 +1,57 @@
+universities = [
+    ['California Institute of Technology', 2175, 37704],
+    ['Harvard', 19627, 39849],
+    ['Massachusetts Institute of Technology', 10566, 40732],
+    ['Princeton', 7802, 37000],
+    ['Rice', 5879, 35551],
+    ['Stanford', 19535, 40569],
+    ['Yale', 11701, 40500]
+]
+
+
+def enrollment_stats(data):
+    students_enrolled = []
+    tuition_fees = []
+
+    for el in data:
+        students_enrolled.append(el[1])
+        tuition_fees.append(el[2])
+
+    return students_enrolled, tuition_fees
+
+
+def mean(data):
+    return round((sum(data) / len(data)), 2)
+
+
+def median(data):
+    data.sort()
+    median = 0
+    if len(data) % 2 == 0:
+        pos2 = int(len(data) / 2)
+        pos1 = pos2 - 1
+        median = (data[pos1] + data[pos2]) / 2
+
+    else:
+        pos = int(len(data) / 2)  # e.g., 3.5 becomes 3
+        median = data[pos]
+
+    return median
+
+
+students = enrollment_stats(universities)[0]
+tuition = enrollment_stats(universities)[1]
+
+students_total = sum(students)
+tuition_total = sum(tuition)
+student_mean = mean(students)
+student_median = median(students)
+tuition_mean = mean(tuition)
+tuition_median = median(tuition)
+
+print(f"Total students: {format(students_total, ",")}")
+print(f"Total tuition: $ {format(tuition_total, ",")}")
+print(f"Students mean: {format(student_mean, ",")}")
+print(f"Students median: {format(student_median, ",")}")
+print(f"Tuition mean: $ {format(tuition_mean, ",")}")
+print(f"Tuition median: $ {format(tuition_median, ",")}")
