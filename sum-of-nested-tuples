@@ -1,0 +1,6 @@
+data = ((1, 2), (3, 4))
+
+count_tuple_elements = 0
+for el in data:
+    count_tuple_elements += 1
+    print(f" Row {count_tuple_elements}, sum: {sum(el)}")
