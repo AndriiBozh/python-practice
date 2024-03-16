@@ -1,0 +1,50 @@
+import random
+
+nouns = ["fossil", "horse", "aardvark", "judge", "chef", "mango","extrovert", "gorilla"]
+verbs =["kicks", "jingles", "bounces", "slurps", "meows","explodes", "curdles"]
+adjectives = ["furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"]
+prepositions = ["against", "after", "into", "beneath", "upon","for", "in", "like", "over", "within"]
+adverbs = ["curiously", "extravagantly", "tantalizingly","furiously", "sensuously"]
+
+
+def generate_rand_words(type_of_word, num_of_words):
+    return random.choices(type_of_word, k=num_of_words)
+
+
+random_nouns = generate_rand_words(nouns, 3)
+random_verbs = generate_rand_words(verbs, 3)
+random_adj = generate_rand_words(adjectives, 3)
+random_prep = generate_rand_words(prepositions, 2)
+random_adv = generate_rand_words(adverbs, 1)
+
+
+def article_based_on_next_word(word):
+    vowels = ["a", "e", "i", "o", "u", "y"]
+    if word[0] in vowels:
+        return "an"
+    else:
+        return "a"
+
+
+def generate_lines(r_nouns, r_verbs, r_adj, r_prep, r_adv):
+
+    heading = []
+    first_line = [article_based_on_next_word(r_adj[0]).capitalize(), r_adj[0], r_nouns[0], r_verbs[0], r_prep[0], "the", r_adj[1], r_nouns[1]]
+    second_line = [r_adv[0].capitalize(), "the", r_nouns[0], r_verbs[1]]
+    third_line = [r_nouns[1].capitalize(), r_verbs[2], r_prep[1], article_based_on_next_word(r_adj[2]), r_nouns[2]]
+
+    for i in range(3):
+        heading.append(first_line[i].capitalize())
+
+    return heading, first_line, second_line, third_line
+
+
+def print_poem(text):
+    for line in text:
+        print(" ".join(line))
+
+
+lines = generate_lines(random_nouns, random_verbs, random_adj, random_prep, random_adv)
+
+
+print_poem(lines)
