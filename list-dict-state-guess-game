@@ -1,0 +1,62 @@
+import random
+
+capitals_dict = {
+    'Alabama': 'Montgomery',
+    'Alaska': 'Juneau',
+    'Arizona': 'Phoenix',
+    'Arkansas': 'Little Rock',
+    'California': 'Sacramento',
+    'Colorado': 'Denver',
+    'Connecticut': 'Hartford',
+    'Delaware': 'Dover',
+    'Florida': 'Tallahassee',
+    'Georgia': 'Atlanta',
+}
+
+
+def get_random_state(states_capitals):
+    # ---------- solution using .items() --------
+    # convert dict to a list-like object (<class 'dict_items'>) containing
+    # tuples of key-value pairs ==> dict_items([('Alabama', 'Montgomery'), etc...... ])
+    # capitals = states_capitals.items()
+    # convert dict_items to a list (containing tuples of key-value pairs) so that
+    # now we are able to pass it to random.choice()
+    # capitals_list = list(capitals)
+    # tuple of state, capital ==> ('Alabama', 'Montgomery')
+    # random_state = random.choice(capitals_list)
+
+    # ---------- solution using .list() --------
+    # list of states from capitals_dict, that is, list of keys ==> ['Alabama', 'Alaska',....]
+    states = list(states_capitals)
+    random_state = random.choice(states)
+    capital = states_capitals[random_state]
+    return random_state, capital
+
+
+def get_capital_from_user_input(state):
+    user_inp = input(f"The capital of {state} is: ")
+    user_inp = user_inp.strip().lower().title()
+    return user_inp
+
+
+def user_wants_continue():
+    user_inp = input("Do you want to play again? Press 'y' to continue or any other key to exit: ")
+    user_inp = user_inp.strip().lower().title()
+    return user_inp
+
+
+def check_your_knowledge_state_capital():
+    state, capital = get_random_state(capitals_dict)
+    while True:
+        user_inp = get_capital_from_user_input(state)
+        if user_inp == capital:            
+            print("That's correct!")
+            user_inp = user_wants_continue()
+            if user_inp != "Y":
+                print('Good bye!')
+                break
+            else:
+                state, capital = get_random_state(capitals_dict)
+
+
+check_your_knowledge_state_capital()
