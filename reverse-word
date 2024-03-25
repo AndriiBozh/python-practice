@@ -1,0 +1,18 @@
+test_str = "hello"
+lst = list(test_str)
+print(lst)
+res = []
+for i in range(0, len(lst)):
+    res.append(lst[len(lst) - i - 1])
+
+res_str = "".join(res)
+print(res_str)
+
+-----------------------------------------
+
+test_str = "hello"
+lst = list(test_str)
+print(lst)
+res = "".join(lst[::-1])
+print(res)
+
